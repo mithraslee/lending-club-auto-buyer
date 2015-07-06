@@ -54,10 +54,12 @@ Start = () ->
         notOwnedValidLoans = validLoans.filter((loan) -> ownedLoanIds.indexOf(loan.id) is -1)
         logger.info "Number of not-owned valid notes: #{notOwnedValidLoans.length}"
 
-        limit = Math.floor summary.availableCash/Config.DefaultAmoutPerNote
-        return logger.error "Zero orders to be placed" unless limit > 0
-        logger.info "Number of orders to be placed: #{Math.min(limit, notOwnedValidLoans.length)}"
-        orders = Util.CreateOrder notOwnedValidLoans[0...limit]
+        orders = Util.CreateOrder notOwnedValidLoans[0...(Math.floor summary.availableCash/Config.DefaultAmoutPerNote)]
+        return logger.info "Zero orders to be placed" unless orders.length > 0
+
+        logger.info "Number of orders to be placed: #{orders.length}"
+        logger.info "Notes to be invested"
+        logger.info notOwnedValidLoans[0...orders.length]
         logger.info "Orders to be placed"
         logger.info orders
 
