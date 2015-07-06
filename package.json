@@ -1,0 +1,19 @@
+{
+  "name": "lendingClubInvestor",
+  "version": "1.0.0",
+  "description": "LendingCLud auto investor",
+  "main": "Invest.coffee",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mithraslee/lending-club-investor.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yun Li <mithraslee@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "request": "2.58.0",
+    "log4js": "0.6.26"
+  }
+}
